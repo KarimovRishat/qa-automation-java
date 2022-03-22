@@ -1,4 +1,5 @@
 package com.tcs.edu.printer;
+import static com.tcs.edu.decorator.TimestampMessageDecorator.decorate;
 
 /**
  * <p>Класс для вывода сообщения<p/>
@@ -11,7 +12,6 @@ public class ConsolePrinter {
      * @affects print - none (нет побочных эффектов)
      */
     public static void print(String message) {
-
-        System.out.println(message);
+        System.out.println(decorate(message));
     }
 }
