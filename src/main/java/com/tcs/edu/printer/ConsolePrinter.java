@@ -1,3 +1,5 @@
+package com.tcs.edu.printer;
+
 /**
  * <p>Класс для вывода сообщения<p/>
  * @author Каримов Ришат
