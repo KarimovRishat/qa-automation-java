@@ -9,9 +9,11 @@ public class TimestampMessageDecorator {
     /**
      * <p>Метод возвращает массив типа String<p/>
      * @param message - string message (сообщение со строковым типом)
-     * @return - возвращает текущую дату и время + сообщение
+     * @return - возвращает переменную decoratedMessage (текущая дата и время + сообщение)
      */
     public static String decorate(String message) {
-        return Instant.now() + " " + message;
+
+        final String decoratedMessage = Instant.now() + " " + message;
+        return decoratedMessage;
     }
 }
