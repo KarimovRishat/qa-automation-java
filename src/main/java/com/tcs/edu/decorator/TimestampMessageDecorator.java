@@ -16,10 +16,11 @@ public class TimestampMessageDecorator {
      * <p>Метод возвращает массив типа String<p/>
      * @param message - string message (сообщение со строковым типом)
      * @return - возвращает переменную decoratedMessage (текущая дата и время + сообщение)
+     * Переменная decoratedMessage использует форматирование строк по шаблону
      */
     public static String decorate(String message) {
         messageCount++;
-        final var decoratedMessage = messageCount+ " " + Instant.now() + " " + message;
+        final var decoratedMessage = String.format("%d %s %s", messageCount, Instant.now(), message);
         return decoratedMessage;
     }
 }
