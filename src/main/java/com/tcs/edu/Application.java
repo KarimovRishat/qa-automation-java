@@ -7,5 +7,8 @@ class Application {
         ConsolePrinter.print("Hello world!");
         ConsolePrinter.print("Hello world!");
         ConsolePrinter.print("Hello world!");
+        ConsolePrinter.print("Hello world!");
+        ConsolePrinter.print("Hello world!");
+        ConsolePrinter.print("Hello world!");
     }
 }
