@@ -7,9 +7,9 @@ import static com.tcs.edu.MessageService.print;
 
 class Application {
     public static void main(String[] args) {
-        print(Severity.MAJOR,"Hello world!");
+        print(Severity.MAJOR,"Hello world!", "test");
         print(Severity.MINOR,"Hello world!");
-        print(Severity.REGULAR,"Hello world!");
+        print(Severity.REGULAR,"Hello world!", "test", "test");
         print(Severity.MINOR,"Hello world!");
         print(Severity.MAJOR,"Hello world!");
         print(Severity.REGULAR,"Hello world!");

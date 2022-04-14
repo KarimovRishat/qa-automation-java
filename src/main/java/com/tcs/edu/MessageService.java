@@ -17,7 +17,8 @@ public class MessageService {
      *
      * @param - print - отдекорированное сообщение со строковым типом
      */
-    public static void print(Severity level, String message) {
-        ConsolePrinter.print(CutDecorator.cutter(decorate(message) + " " + severityLevel(level)));
+    public static void print(Severity level, String... messages) {
+        for (String currentMessage : messages)
+        ConsolePrinter.print(CutDecorator.cutter(decorate(currentMessage) + " " + severityLevel(level)));
     }
 }
