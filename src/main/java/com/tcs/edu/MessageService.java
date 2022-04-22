@@ -3,10 +3,15 @@ package com.tcs.edu;
 import com.tcs.edu.decorator.MessageOrder;
 import com.tcs.edu.decorator.Severity;
 import com.tcs.edu.printer.ConsolePrinter;
+import com.tcs.edu.decorator.Doubling;
+
+import java.util.Objects;
+import java.util.function.IntFunction;
 
 import static com.tcs.edu.decorator.CutDecorator.*;
 import static com.tcs.edu.decorator.SeverityDecorator.severityLevel;
 import static com.tcs.edu.decorator.TimestampMessageDecorator.decorate;
+import static java.util.Arrays.stream;
 
 /**
  * <p>Класс для инкрементации и отправки в принтер отдекорированных сообщений<p/>
@@ -49,6 +54,24 @@ public class MessageService {
             }
 
         }
+    }
+
+    /**
+     * Метод осуществляет проверку на дубли, игнорируя их при выводе
+     *
+     * @param level-    уровень важности
+     * @param order-    порядковое значение в массиве
+     * @param doubling- параметр дублирования
+     * @param messages- входные данные
+     */
+    public static void print(Severity level, MessageOrder order, Doubling doubling, String... messages) {
+        var teststream = stream(messages);
+
+        if (doubling == Doubling.DISTINCT) {
+            teststream = teststream.distinct();
+        }
+        print(level, order, teststream.toArray(String[]::new));
+
     }
 
 }
