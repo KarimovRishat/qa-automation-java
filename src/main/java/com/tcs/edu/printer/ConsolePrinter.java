@@ -12,6 +12,7 @@ public class ConsolePrinter {
      * @param - print - string message (отдекорированное сообщение со строковым типом)
      */
     public static void print(String decoratedMessage) {
+
         System.out.println(decoratedMessage);
     }
 
