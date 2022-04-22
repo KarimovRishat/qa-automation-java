@@ -5,9 +5,6 @@ import com.tcs.edu.decorator.Severity;
 import com.tcs.edu.printer.ConsolePrinter;
 import com.tcs.edu.decorator.Doubling;
 
-import java.util.Objects;
-import java.util.function.IntFunction;
-
 import static com.tcs.edu.decorator.CutDecorator.*;
 import static com.tcs.edu.decorator.SeverityDecorator.severityLevel;
 import static com.tcs.edu.decorator.TimestampMessageDecorator.decorate;
@@ -65,12 +62,12 @@ public class MessageService {
      * @param messages- входные данные
      */
     public static void print(Severity level, MessageOrder order, Doubling doubling, String... messages) {
-        var teststream = stream(messages);
+        var doublingType = stream(messages);
 
         if (doubling == Doubling.DISTINCT) {
-            teststream = teststream.distinct();
+            doublingType = doublingType.distinct();
         }
-        print(level, order, teststream.toArray(String[]::new));
+        print(level, order, doublingType.toArray(String[]::new));
 
     }
 
