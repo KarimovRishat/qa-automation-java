@@ -2,6 +2,7 @@ package com.tcs.edu;
 
 import com.tcs.edu.decorator.MessageOrder;
 import com.tcs.edu.decorator.Severity;
+import com.tcs.edu.domain.Message;
 import com.tcs.edu.printer.ConsolePrinter;
 import com.tcs.edu.decorator.Doubling;
 
@@ -21,11 +22,12 @@ public class MessageService {
      *
      * @param - print - отдекорированное сообщение со строковым типом
      */
-    public static void print(Severity level, String... messages) {
+    public static void print(Message... messages) {
 
-        for (String currentMessage : messages) {
-            if (currentMessage != null) {
-                ConsolePrinter.print(cutter(decorate(currentMessage) + " " + severityLevel(level)));
+       for (Message currentMessage : messages) {
+           if (currentMessage != null)
+            {
+                ConsolePrinter.print(cutter(decorate(currentMessage)));
             }
         }
     }
@@ -33,21 +35,20 @@ public class MessageService {
     /**
      * Метод сортирует массив сообщений в обратном порядке
      *
-     * @param level    - уровень важности
      * @param order    - порядковое значение в массиве
      * @param messages - входные данные
      */
-    public static void print(Severity level, MessageOrder order, String... messages) {
+    public static void print(MessageOrder order, Message... messages) {
         if (order == MessageOrder.DESC) {
-            String[] heep = new String[messages.length];
+            Message[] heep = new Message[messages.length];
             for (int count = messages.length - 1; count >= 0; count--) {
                 heep[count] = messages[messages.length - 1 - count];
             }
             messages = heep;
         }
-        for (String currentMessage : messages) {
+        for (Message currentMessage : messages) {
             if (currentMessage != null) {
-                ConsolePrinter.print(cutter(decorate(currentMessage) + " " + severityLevel(level)));
+                ConsolePrinter.print(cutter(decorate(currentMessage)));
             }
 
         }
@@ -56,18 +57,17 @@ public class MessageService {
     /**
      * Метод осуществляет проверку на дубли, игнорируя их при выводе
      *
-     * @param level-    уровень важности
      * @param order-    порядковое значение в массиве
      * @param doubling- параметр дублирования
      * @param messages- входные данные
      */
-    public static void print(Severity level, MessageOrder order, Doubling doubling, String... messages) {
+    public static void print(MessageOrder order, Doubling doubling, Message... messages) {
         var doublingType = stream(messages);
 
         if (doubling == Doubling.DISTINCT) {
             doublingType = doublingType.distinct();
         }
-        print(level, order, doublingType.toArray(String[]::new));
+        print(order, doublingType.toArray(Message[]::new));
 
     }
 

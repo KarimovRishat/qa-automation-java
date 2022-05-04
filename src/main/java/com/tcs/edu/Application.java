@@ -3,18 +3,19 @@ package com.tcs.edu;
 import com.tcs.edu.decorator.Doubling;
 import com.tcs.edu.decorator.MessageOrder;
 import com.tcs.edu.decorator.Severity;
+import com.tcs.edu.domain.Message;
 
 import static com.tcs.edu.MessageService.print;
 
 
 class Application {
     public static void main(String[] args) {
-        print(Severity.MAJOR, MessageOrder.ASC, Doubling.DISTINCT, "Hello world!", "Hello world!", "1", "2", "3");
-        print(Severity.MINOR, MessageOrder.DESC, Doubling.DOUBLES, "Hello world!", "Hello world!", "1", "2", "3", "4");
-        print(Severity.MINOR, MessageOrder.DESC, Doubling.DOUBLES, "Hello world!", "test", null);
-        print(Severity.MAJOR, MessageOrder.DESC, Doubling.DISTINCT, "Hello world!", "test");
-        print(Severity.MAJOR, MessageOrder.ASC, Doubling.DISTINCT, "Hello world!", "test", "test", "test");
-
-
+        Message message1 = new Message(Severity.MAJOR, "Message1");
+        Message message2 = new Message(Severity.MINOR, "Message2" );
+        Message message3 = new Message(Severity.REGULAR, "Message3");
+        print(message1,message2,message3);
+        print(MessageOrder.DESC,Doubling.DISTINCT,message2,message2,message3);
+        print(MessageOrder.DESC,Doubling.DOUBLES,message2,message2,message3);
+        print(MessageOrder.ASC,Doubling.DOUBLES,message2,message2,message3);
     }
 }
