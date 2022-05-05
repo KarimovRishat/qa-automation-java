@@ -2,6 +2,12 @@ package com.tcs.edu.domain;
 
 import com.tcs.edu.decorator.Severity;
 
+/**
+ * Класс, описывающий объекты типа Message
+ *
+ * @author Каримов Ришат
+ */
+
 public class Message {
 
     private Severity severity;

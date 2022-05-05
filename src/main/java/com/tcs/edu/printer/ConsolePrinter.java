@@ -5,13 +5,13 @@ package com.tcs.edu.printer;
  *
  * @author Каримов Ришат
  */
-public class ConsolePrinter {
+public class ConsolePrinter implements Printer {
     /**
      * <p>Метод выводит массив типа String<p/>
      *
      * @param - print - string message (отдекорированное сообщение со строковым типом)
      */
-    public static void print(String decoratedMessage) {
+    public void print(String decoratedMessage) {
 
         System.out.println(decoratedMessage);
     }
