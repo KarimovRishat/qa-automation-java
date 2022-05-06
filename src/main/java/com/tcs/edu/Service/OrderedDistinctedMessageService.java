@@ -1,9 +1,13 @@
-package com.tcs.edu.decorator;
+package com.tcs.edu.Service;
 
-import com.tcs.edu.MessageService;
+import com.tcs.edu.Enums.Doubling;
+import com.tcs.edu.Enums.MessageOrder;
+import com.tcs.edu.Interface.MessageDecorator;
+import com.tcs.edu.Interface.MessageService;
+import com.tcs.edu.decorator.TimestampMessageDecorator;
 import com.tcs.edu.domain.Message;
 import com.tcs.edu.printer.ConsolePrinter;
-import com.tcs.edu.printer.Printer;
+import com.tcs.edu.Interface.Printer;
 
 import static com.tcs.edu.decorator.CutDecorator.*;
 import static java.util.Arrays.stream;
@@ -13,10 +17,20 @@ import static java.util.Arrays.stream;
  *
  * @author Каримов Ришат
  */
-public class DecoratingMessageService implements MessageService {
+public class OrderedDistinctedMessageService implements MessageService {
 
-    final Printer printer = new ConsolePrinter();
-    final MessageDecorator decorator = new TimestampMessageDecorator();
+    private Printer printer;
+    private MessageDecorator decorator;
+
+    /**
+     *
+     * Конструктор, принимающий параметры принтера и декоратора
+     *
+     */
+    public OrderedDistinctedMessageService(Printer printer, MessageDecorator decorator) {
+        this.printer = printer;
+        this.decorator = decorator;
+    }
 
     /**
      * <p>Метод конкатенирует и передает в принтер отдекорированные сообщения<p/>

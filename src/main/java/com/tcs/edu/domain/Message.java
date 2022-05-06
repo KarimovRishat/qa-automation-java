@@ -1,6 +1,6 @@
 package com.tcs.edu.domain;
 
-import com.tcs.edu.decorator.Severity;
+import com.tcs.edu.Enums.Severity;
 
 /**
  * Класс, описывающий объекты типа Message

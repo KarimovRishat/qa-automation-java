@@ -1,4 +1,4 @@
-package com.tcs.edu.printer;
+package com.tcs.edu.Interface;
 
 /**
  * Класс, описывающий интферфейс типа Printer

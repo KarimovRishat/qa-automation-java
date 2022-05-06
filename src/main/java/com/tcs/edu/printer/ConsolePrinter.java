@@ -1,5 +1,7 @@
 package com.tcs.edu.printer;
 
+import com.tcs.edu.Interface.Printer;
+
 /**
  * <p>Класс для вывода сообщения<p/>
  *
