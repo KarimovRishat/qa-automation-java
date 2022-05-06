@@ -1,10 +1,10 @@
 package com.tcs.edu;
 
-import com.tcs.edu.Interface.MessageService;
-import com.tcs.edu.Service.OrderedDistinctedMessageService;
-import com.tcs.edu.Enums.Doubling;
-import com.tcs.edu.Enums.MessageOrder;
-import com.tcs.edu.Enums.Severity;
+import com.tcs.edu.interfaces.MessageService;
+import com.tcs.edu.service.OrderedDistinctedMessageService;
+import com.tcs.edu.enums.Doubling;
+import com.tcs.edu.enums.MessageOrder;
+import com.tcs.edu.enums.Severity;
 import com.tcs.edu.decorator.TimestampMessageDecorator;
 import com.tcs.edu.domain.Message;
 import com.tcs.edu.printer.ConsolePrinter;

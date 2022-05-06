@@ -1,4 +1,4 @@
-package com.tcs.edu.Enums;
+package com.tcs.edu.enums;
 
 /**
  * Класс, перечисляющий константы важности сообщений

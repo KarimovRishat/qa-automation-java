@@ -1,4 +1,4 @@
-package com.tcs.edu.Interface;
+package com.tcs.edu.interfaces;
 
 import com.tcs.edu.domain.Message;
 

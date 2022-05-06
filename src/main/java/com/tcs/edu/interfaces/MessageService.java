@@ -1,7 +1,7 @@
-package com.tcs.edu.Interface;
+package com.tcs.edu.interfaces;
 
-import com.tcs.edu.Enums.Doubling;
-import com.tcs.edu.Enums.MessageOrder;
+import com.tcs.edu.enums.Doubling;
+import com.tcs.edu.enums.MessageOrder;
 import com.tcs.edu.domain.Message;
 
 /**

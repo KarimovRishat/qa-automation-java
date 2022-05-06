@@ -1,6 +1,6 @@
 package com.tcs.edu.decorator;
 
-import com.tcs.edu.Enums.Severity;
+import com.tcs.edu.enums.Severity;
 
 /**
  * <p>Класс для определения и отправки визуального отображения уровня важности сообщений<p/>

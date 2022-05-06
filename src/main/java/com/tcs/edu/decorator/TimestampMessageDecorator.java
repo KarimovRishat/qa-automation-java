@@ -1,6 +1,6 @@
 package com.tcs.edu.decorator;
 
-import com.tcs.edu.Interface.MessageDecorator;
+import com.tcs.edu.interfaces.MessageDecorator;
 import com.tcs.edu.domain.Message;
 
 import java.time.Instant;

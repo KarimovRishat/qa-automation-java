@@ -1,13 +1,11 @@
-package com.tcs.edu.Service;
+package com.tcs.edu.service;
 
-import com.tcs.edu.Enums.Doubling;
-import com.tcs.edu.Enums.MessageOrder;
-import com.tcs.edu.Interface.MessageDecorator;
-import com.tcs.edu.Interface.MessageService;
-import com.tcs.edu.decorator.TimestampMessageDecorator;
+import com.tcs.edu.enums.Doubling;
+import com.tcs.edu.enums.MessageOrder;
+import com.tcs.edu.interfaces.MessageDecorator;
+import com.tcs.edu.interfaces.MessageService;
 import com.tcs.edu.domain.Message;
-import com.tcs.edu.printer.ConsolePrinter;
-import com.tcs.edu.Interface.Printer;
+import com.tcs.edu.interfaces.Printer;
 
 import static com.tcs.edu.decorator.CutDecorator.*;
 import static java.util.Arrays.stream;
