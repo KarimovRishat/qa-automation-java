@@ -1,5 +1,8 @@
 package com.tcs.edu.decorator;
 
+import com.tcs.edu.interfaces.MessageDecorator;
+import com.tcs.edu.domain.Message;
+
 import java.time.Instant;
 
 /**
@@ -7,7 +10,7 @@ import java.time.Instant;
  *
  * @author Каримов Ришат
  */
-public class TimestampMessageDecorator {
+public class TimestampMessageDecorator implements MessageDecorator {
     /**
      * <p>Глобальная переменная, присваивающая порядковые номера сообщениям</p>
      */
@@ -21,9 +24,10 @@ public class TimestampMessageDecorator {
      * Переменная decoratedMessage использует форматирование строк по шаблону (шаблон заведен
      * как переменная template)
      */
-    public static String decorate(String message) {
+    public String decorate(Message message) {
         messageCount++;
-        String template = "%d %s %s";
-        return String.format(template, messageCount, Instant.now(), message);
+        String template = "%d %s %s %s";
+        return String.format(template, messageCount, Instant.now(), message.getBody(),
+                SeverityDecorator.severityLevel(message.getSeverity()));
     }
 }
