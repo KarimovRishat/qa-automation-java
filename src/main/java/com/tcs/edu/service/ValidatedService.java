@@ -3,7 +3,7 @@ package com.tcs.edu.service;
 import com.tcs.edu.domain.Message;
 
 /**
- * <p>Класс для валидации входных данных параметров</p>
+ * <p>Класс для валидации входных параметров</p>
  *
  * @author r.karimov
  */
