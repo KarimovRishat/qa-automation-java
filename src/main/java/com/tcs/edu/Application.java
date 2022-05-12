@@ -23,6 +23,7 @@ class Application {
         service.print(MessageOrder.DESC, Doubling.DOUBLES, message1, message2, message3);
         service.print(MessageOrder.DESC, Doubling.DISTINCT, new Message(Severity.REGULAR, "Message3"));
         service.print(MessageOrder.ASC, Doubling.DISTINCT, new Message(Severity.REGULAR, "Message3"));
+        service.print(MessageOrder.ASC, Doubling.DISTINCT, new Message(Severity.REGULAR, null));
         service.print(MessageOrder.DESC, Doubling.DOUBLES, message1, message1, message1, message2);
         service.print(MessageOrder.DESC, Doubling.DISTINCT, message4);
     }

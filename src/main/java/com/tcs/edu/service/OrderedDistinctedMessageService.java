@@ -15,7 +15,7 @@ import static java.util.Arrays.stream;
  *
  * @author Каримов Ришат
  */
-public class OrderedDistinctedMessageService implements MessageService {
+public class OrderedDistinctedMessageService extends ValidatedService implements MessageService {
 
     private Printer printer;
     private MessageDecorator decorator;
@@ -38,9 +38,10 @@ public class OrderedDistinctedMessageService implements MessageService {
     public void print(Message... messages) {
 
         for (Message currentMessage : messages) {
-            if (currentMessage != null) {
-                printer.print(cutter(decorator.decorate(currentMessage)));
+            if (!super.isArgsValid(currentMessage)) {
+                continue;
             }
+                printer.print(cutter(decorator.decorate(currentMessage)));
         }
     }
 
@@ -58,10 +59,12 @@ public class OrderedDistinctedMessageService implements MessageService {
             }
             messages = heep;
         }
+
         for (Message currentMessage : messages) {
-            if (currentMessage != null) {
-                printer.print(cutter(decorator.decorate(currentMessage)));
+            if (!super.isArgsValid(currentMessage)) {
+                continue;
             }
+                printer.print(cutter(decorator.decorate(currentMessage)));
 
         }
     }
