@@ -37,6 +37,8 @@ class Application {
                 message2, message3, null, message4, message5,message6,message7);
 
         System.out.println(message1);
-
+        System.out.println(message1.hashCode());
+        System.out.println(message1.equals(message2));
+        System.out.println(message1.equals(message4));
     }
 }
