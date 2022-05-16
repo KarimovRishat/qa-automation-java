@@ -48,18 +48,22 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      * @param messages - входные данные
      */
     public void print(MessageOrder order, Message... messages) {
+        Message[] heap = new Message[messages.length];
         if (order == MessageOrder.DESC) {
-            Message[] heap = new Message[messages.length];
+
             for (int count = messages.length - 1; count >= 0; count--) {
                 heap[count] = messages[messages.length - 1 - count];
             }
         }
+        else {
+            heap = messages;
+        }
 
-        for (Message heap : messages) {
-            if (!super.isArgsValid(heap)) {
+        for (Message m : heap) {
+            if (!super.isArgsValid(m)) {
                 continue;
             }
-            printer.print(cutter(decorator.decorate(heap)));
+            printer.print(cutter(decorator.decorate(m)));
         }
     }
 
