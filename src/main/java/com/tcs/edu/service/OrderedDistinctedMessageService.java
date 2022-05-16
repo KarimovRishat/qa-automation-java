@@ -17,6 +17,8 @@ import static java.util.Arrays.stream;
  */
 public class OrderedDistinctedMessageService extends ValidatedService implements MessageService {
 
+    private static final MessageOrder DEFAULT_ORDER = MessageOrder.ASC;
+
     private Printer printer;
     private MessageDecorator decorator;
 
@@ -36,13 +38,7 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      * @param - print - отдекорированное сообщение со строковым типом
      */
     public void print(Message... messages) {
-
-        for (Message currentMessage : messages) {
-            if (!super.isArgsValid(currentMessage)) {
-                continue;
-            }
-                printer.print(cutter(decorator.decorate(currentMessage)));
-        }
+        print(DEFAULT_ORDER, messages);
     }
 
     /**
@@ -53,19 +49,17 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      */
     public void print(MessageOrder order, Message... messages) {
         if (order == MessageOrder.DESC) {
-            Message[] heep = new Message[messages.length];
+            Message[] heap = new Message[messages.length];
             for (int count = messages.length - 1; count >= 0; count--) {
-                heep[count] = messages[messages.length - 1 - count];
+                heap[count] = messages[messages.length - 1 - count];
             }
-            messages = heep;
         }
 
-        for (Message currentMessage : messages) {
-            if (!super.isArgsValid(currentMessage)) {
+        for (Message heap : messages) {
+            if (!super.isArgsValid(heap)) {
                 continue;
             }
-                printer.print(cutter(decorator.decorate(currentMessage)));
-
+            printer.print(cutter(decorator.decorate(heap)));
         }
     }
 
