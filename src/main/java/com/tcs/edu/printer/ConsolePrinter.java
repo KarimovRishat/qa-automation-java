@@ -14,7 +14,6 @@ public class ConsolePrinter implements Printer {
      * @param - print - string message (отдекорированное сообщение со строковым типом)
      */
     public void print(String decoratedMessage) {
-
         System.out.println(decoratedMessage);
     }
 
