@@ -1,5 +1,6 @@
 package com.tcs.edu;
 
+import com.tcs.edu.domain.LogException;
 import com.tcs.edu.interfaces.MessageService;
 import com.tcs.edu.service.OrderedDistinctedMessageService;
 import com.tcs.edu.enums.Doubling;
@@ -28,17 +29,24 @@ class Application {
         Message message7 = new Message(null);
 
         service.print(DESC, DISTINCT, message1, message1,
-                message2, message3, null, message4, message5,message6,message7);
+                message2, message3, message4, message5,message6);
         service.print(DESC, DOUBLES, message1, message1,
-                message2, message3, null, message4, message5,message6,message7);
+                message2, message3, message4, message5,message6);
         service.print(ASC, DOUBLES, message1, message1,
-                message2, message3, null, message4, message5,message6,message7);
+                message2, message3, message4, message5,message6);
         service.print(ASC, DISTINCT, message1, message1,
-                message2, message3, null, message4, message5,message6,message7);
+                message2, message3, message4, message5,message6);
 
         System.out.println(message1);
         System.out.println(message1.hashCode());
         System.out.println(message1.equals(message2));
         System.out.println(message1.equals(message4));
+
+        try {
+            service.print(message7);
+        }
+        catch (LogException e) {
+            e.printStackTrace();
+        }
     }
 }

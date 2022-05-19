@@ -1,5 +1,7 @@
 package com.tcs.edu.interfaces;
 
+import com.tcs.edu.domain.LogException;
+
 /**
  * Класс, описывающий интферфейс типа Printer
  *
@@ -7,5 +9,5 @@ package com.tcs.edu.interfaces;
  */
 
 public interface Printer {
-    void print(String decoratedMessage);
+    void print(String decoratedMessage) throws LogException;
 }
