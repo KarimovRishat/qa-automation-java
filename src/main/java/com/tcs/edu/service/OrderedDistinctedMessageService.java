@@ -66,7 +66,7 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
                 printer.print(cutter(decorator.decorate(m)));
             }
             catch (IllegalArgumentException e) {
-                throw new LogException("Message is null !", e);
+                throw new LogException("Can`t print message:" + e.getMessage(), e);
             }
         }
     }
