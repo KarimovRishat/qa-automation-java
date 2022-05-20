@@ -13,10 +13,16 @@ public abstract class ValidatedService {
     /**
      * Метод возвращает false если message = null, или message body = null
      * @param message сообщение для валидации
-     * @return возвращает true если сообщение отвечает требованиям
+    // * @return возвращает true если сообщение отвечает требованиям
      */
 
-    public boolean isArgsValid (Message message) {
-        return message != null && message.getBody() != null;
+    public void isArgsValid (Message message) {
+       // return message != null && message.getBody() != null;
+        if (message == null) {
+            throw new IllegalArgumentException("Message is null !");
+        }
+        if (message.getBody() == null) {
+            throw new IllegalArgumentException("body is null !");
+        }
     }
 }

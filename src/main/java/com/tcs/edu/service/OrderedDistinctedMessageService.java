@@ -1,5 +1,6 @@
 package com.tcs.edu.service;
 
+import com.tcs.edu.domain.LogException;
 import com.tcs.edu.enums.Doubling;
 import com.tcs.edu.enums.MessageOrder;
 import com.tcs.edu.interfaces.MessageDecorator;
@@ -37,7 +38,7 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      *
      * @param - print - отдекорированное сообщение со строковым типом
      */
-    public void print(Message... messages) {
+    public void print(Message... messages) throws LogException {
         print(DEFAULT_ORDER, messages);
     }
 
@@ -47,7 +48,7 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      * @param order    - порядковое значение в массиве
      * @param messages - входные данные
      */
-    public void print(MessageOrder order, Message... messages) {
+    public void print(MessageOrder order, Message... messages) throws LogException {
         Message[] heap = new Message[messages.length];
         if (order == MessageOrder.DESC) {
 
@@ -60,10 +61,13 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
         }
 
         for (Message m : heap) {
-            if (!super.isArgsValid(m)) {
-                continue;
+            try {
+                super.isArgsValid(m);
+                printer.print(cutter(decorator.decorate(m)));
             }
-            printer.print(cutter(decorator.decorate(m)));
+            catch (IllegalArgumentException e) {
+                throw new LogException("Can`t print message:" + e.getMessage(), e);
+            }
         }
     }
 
@@ -74,7 +78,7 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      * @param doubling- параметр дублирования
      * @param messages- входные данные
      */
-    public void print(MessageOrder order, Doubling doubling, Message... messages) {
+    public void print(MessageOrder order, Doubling doubling, Message... messages) throws LogException {
         var doublingType = stream(messages);
 
         if (doubling == Doubling.DISTINCT) {
