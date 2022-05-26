@@ -49,5 +49,10 @@ class Application {
         for (Message currentMessage : allMessages) {
             service.log(currentMessage);
         }
+
+        System.out.println("\r\n\r\n Print messages with severity");
+        for (Message currentMessage : serviceSaver.findBySeverity(Severity.MAJOR)) {
+            service.log(currentMessage);
+        }
     }
 }
