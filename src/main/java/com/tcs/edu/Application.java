@@ -5,8 +5,8 @@ import com.tcs.edu.enums.Doubling;
 import com.tcs.edu.enums.MessageOrder;
 import com.tcs.edu.interfaces.MessageService;
 import com.tcs.edu.printer.ConsolePrinter;
-import com.tcs.edu.service.MessageServiceSave;
-import com.tcs.edu.interfaces.MessageServiceSaveInterface;
+import com.tcs.edu.service.MessageServiceSaver;
+import com.tcs.edu.interfaces.MessageServiceSaverInterface;
 import com.tcs.edu.enums.Severity;
 import com.tcs.edu.domain.Message;
 import com.tcs.edu.service.OrderedDistinctedMessageService;
@@ -17,15 +17,15 @@ import java.util.UUID;
 
 class Application {
     public static void main(String[] args) {
-        MessageServiceSaveInterface serviceSaver = new MessageServiceSave();
+        MessageServiceSaverInterface serviceSaver = new MessageServiceSaver();
 
         Message message1 = new Message(Severity.MAJOR, "Message1");
         Message message2 = new Message(Severity.MINOR, "Message2");
         Message message3 = new Message(Severity.REGULAR, "Message3");
 
-        final UUID key1 = serviceSaver.log(message1);
-        final UUID key2 = serviceSaver.log(message2);
-        final UUID key3 = serviceSaver.log(message3);
+        final UUID key1 = serviceSaver.save(message1);
+        final UUID key2 = serviceSaver.save(message2);
+        final UUID key3 = serviceSaver.save(message3);
 
         System.out.println("\r\n\r\n Messages found by Id:");
         System.out.println(serviceSaver.findByPrimaryKey(key1));
