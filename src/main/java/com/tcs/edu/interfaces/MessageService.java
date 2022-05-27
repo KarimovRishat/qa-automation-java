@@ -12,9 +12,9 @@ import com.tcs.edu.domain.Message;
  */
 
 public interface MessageService {
-    void print(Message... messages) throws LogException;
+    void log(Message... messages) throws LogException;
 
-    void print(MessageOrder order, Message... messages) throws LogException;
+    void log(MessageOrder order, Message... messages) throws LogException;
 
-    void print(MessageOrder order, Doubling doubling, Message... messages) throws LogException;
+    void log(MessageOrder order, Doubling doubling, Message... messages) throws LogException;
 }

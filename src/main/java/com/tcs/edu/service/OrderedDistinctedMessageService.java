@@ -38,8 +38,8 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      *
      * @param - print - отдекорированное сообщение со строковым типом
      */
-    public void print(Message... messages) throws LogException {
-        print(DEFAULT_ORDER, messages);
+    public void log(Message... messages) throws LogException {
+        log(DEFAULT_ORDER, messages);
     }
 
     /**
@@ -48,7 +48,7 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      * @param order    - порядковое значение в массиве
      * @param messages - входные данные
      */
-    public void print(MessageOrder order, Message... messages) throws LogException {
+    public void log(MessageOrder order, Message... messages) throws LogException {
         Message[] heap = new Message[messages.length];
         if (order == MessageOrder.DESC) {
 
@@ -78,13 +78,13 @@ public class OrderedDistinctedMessageService extends ValidatedService implements
      * @param doubling- параметр дублирования
      * @param messages- входные данные
      */
-    public void print(MessageOrder order, Doubling doubling, Message... messages) throws LogException {
+    public void log(MessageOrder order, Doubling doubling, Message... messages) throws LogException {
         var doublingType = stream(messages);
 
         if (doubling == Doubling.DISTINCT) {
             doublingType = doublingType.distinct();
         }
-        print(order, doublingType.toArray(Message[]::new));
+        log(order, doublingType.toArray(Message[]::new));
 
     }
 

@@ -3,6 +3,7 @@ package com.tcs.edu.domain;
 import com.tcs.edu.enums.Severity;
 
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Класс, описывающий объекты типа Message
@@ -14,6 +15,7 @@ public class Message {
 
     private Severity severity;
     private String body;
+    private UUID id;
 
     public Message(Severity severity, String body) {
         this.severity = severity;
@@ -32,22 +34,30 @@ public class Message {
         return body;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID key) {
+        this.id = key;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message = (Message) o;
-        return severity == message.severity && Objects.equals(body, message.body);
+        return Objects.equals(id, message.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(severity, body);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-        return "Message{" +
+        return id + " - Message{" +
                 "severity=" + severity +
                 ", body='" + body + '\'' +
                 '}';
