@@ -6,7 +6,7 @@ import com.tcs.edu.enums.Severity;
 import java.util.Collection;
 import java.util.UUID;
 
-public interface ProcessingMessageServiceInterface {
+public interface MessageServiceSaveInterface {
     UUID log(Message message);
 
     Message findByPrimaryKey(UUID key);

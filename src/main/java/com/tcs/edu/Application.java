@@ -5,8 +5,8 @@ import com.tcs.edu.enums.Doubling;
 import com.tcs.edu.enums.MessageOrder;
 import com.tcs.edu.interfaces.MessageService;
 import com.tcs.edu.printer.ConsolePrinter;
-import com.tcs.edu.service.ProcessingMessageService;
-import com.tcs.edu.interfaces.ProcessingMessageServiceInterface;
+import com.tcs.edu.service.MessageServiceSave;
+import com.tcs.edu.interfaces.MessageServiceSaveInterface;
 import com.tcs.edu.enums.Severity;
 import com.tcs.edu.domain.Message;
 import com.tcs.edu.service.OrderedDistinctedMessageService;
@@ -17,7 +17,7 @@ import java.util.UUID;
 
 class Application {
     public static void main(String[] args) {
-        ProcessingMessageServiceInterface serviceSaver = new ProcessingMessageService();
+        MessageServiceSaveInterface serviceSaver = new MessageServiceSave();
 
         Message message1 = new Message(Severity.MAJOR, "Message1");
         Message message2 = new Message(Severity.MINOR, "Message2");

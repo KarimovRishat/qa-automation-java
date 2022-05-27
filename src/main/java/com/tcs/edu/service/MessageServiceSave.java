@@ -3,14 +3,14 @@ package com.tcs.edu.service;
 import com.tcs.edu.domain.LogException;
 import com.tcs.edu.domain.Message;
 import com.tcs.edu.enums.Severity;
-import com.tcs.edu.interfaces.ProcessingMessageServiceInterface;
+import com.tcs.edu.interfaces.MessageServiceSaveInterface;
 import com.tcs.edu.repository.HashMapMessageRepository;
 import com.tcs.edu.interfaces.MessageRepository;
 
 import java.util.Collection;
 import java.util.UUID;
 
-public class ProcessingMessageService extends ValidatedService implements ProcessingMessageServiceInterface {
+public class MessageServiceSave extends ValidatedService implements MessageServiceSaveInterface {
     private MessageRepository messageRepository = new HashMapMessageRepository();
 
     public UUID log(Message message) {
