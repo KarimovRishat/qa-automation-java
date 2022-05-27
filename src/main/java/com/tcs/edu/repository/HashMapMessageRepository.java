@@ -2,6 +2,7 @@ package com.tcs.edu.repository;
 
 import com.tcs.edu.domain.Message;
 import com.tcs.edu.enums.Severity;
+import com.tcs.edu.interfaces.MessageRepository;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class HashMapMessageRepository implements MessageRepository{
+public class HashMapMessageRepository implements MessageRepository {
     private Map<UUID, Message> messages = new HashMap<>();
 
     @Override

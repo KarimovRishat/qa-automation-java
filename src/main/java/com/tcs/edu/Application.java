@@ -5,11 +5,11 @@ import com.tcs.edu.enums.Doubling;
 import com.tcs.edu.enums.MessageOrder;
 import com.tcs.edu.interfaces.MessageService;
 import com.tcs.edu.printer.ConsolePrinter;
-import com.tcs.edu.repository.MessageSaver;
-import com.tcs.edu.repository.MessageSaverInterface;
+import com.tcs.edu.service.ProcessingMessageService;
+import com.tcs.edu.interfaces.ProcessingMessageServiceInterface;
 import com.tcs.edu.enums.Severity;
 import com.tcs.edu.domain.Message;
-import com.tcs.edu.service.ProcessingMessageService;
+import com.tcs.edu.service.OrderedDistinctedMessageService;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -17,7 +17,7 @@ import java.util.UUID;
 
 class Application {
     public static void main(String[] args) {
-        MessageSaverInterface serviceSaver = new MessageSaver();
+        ProcessingMessageServiceInterface serviceSaver = new ProcessingMessageService();
 
         Message message1 = new Message(Severity.MAJOR, "Message1");
         Message message2 = new Message(Severity.MINOR, "Message2");
@@ -34,7 +34,7 @@ class Application {
 
         final Collection<Message> allMessages = serviceSaver.findAll();
 
-        MessageService service = new ProcessingMessageService(
+        MessageService service = new OrderedDistinctedMessageService(
                 new ConsolePrinter(),
                 new TimestampMessageDecorator()
         );

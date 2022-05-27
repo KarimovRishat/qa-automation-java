@@ -1,4 +1,4 @@
-package com.tcs.edu.repository;
+package com.tcs.edu.interfaces;
 
 import com.tcs.edu.domain.Message;
 import com.tcs.edu.enums.Severity;
@@ -6,8 +6,8 @@ import com.tcs.edu.enums.Severity;
 import java.util.Collection;
 import java.util.UUID;
 
-public interface MessageSaverInterface {
-    UUID log(Message message);
+public interface MessageRepository {
+    UUID create(Message message);
 
     Message findByPrimaryKey(UUID key);
 
