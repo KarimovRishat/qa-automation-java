@@ -51,7 +51,7 @@ public class ApplicationTest {
 
         Exception exception = Assertions.assertThrows(LogException.class, () -> serviceSaver.save(null));
 
-        assertThat(exception.getMessage()).isEqualTo("java.lang.IllegalArgumentException: Message is null !");
+        assertThat(exception.getMessage()).isEqualTo("Can`t print message");
     }
 
     @Test
@@ -59,7 +59,7 @@ public class ApplicationTest {
     public void nullMessageShouldNotBeSaved() {
         Exception exception = Assertions.assertThrows(LogException.class, () -> serviceSaver.save(null));
 
-        assertThat(exception.getMessage()).isEqualTo("java.lang.IllegalArgumentException: Message is null !");
+        assertThat(exception.getMessage()).isEqualTo("Can`t print message");
     }
 
     @Nested
