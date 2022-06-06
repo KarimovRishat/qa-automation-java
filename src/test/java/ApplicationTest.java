@@ -49,7 +49,7 @@ public class ApplicationTest {
     public void messageWithNullBodyShouldNotBeSaved() {
         Message message = new Message(MINOR, null);
 
-        Exception exception = Assertions.assertThrows(LogException.class, () -> serviceSaver.save(null));
+        Exception exception = Assertions.assertThrows(LogException.class, () -> serviceSaver.save(message));
 
         assertThat(exception.getMessage()).isEqualTo("Can`t print message");
     }
