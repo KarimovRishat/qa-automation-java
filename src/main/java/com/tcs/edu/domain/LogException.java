@@ -14,7 +14,7 @@ public class LogException extends RuntimeException {
     }
 
     public LogException(Throwable cause) {
-        super(cause);
+        super("Can`t print message", cause);
     }
 
     protected LogException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
